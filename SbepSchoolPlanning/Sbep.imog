@@ -1,0 +1,1219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<imogene:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:imogene="http://www.i-mogene.org/imogene/1.0" name="Sbep">
+  <description display="SBEP School Assessment" help="" locale="en"/>
+  <entities name="SchoolAssessment" shortName="A" columnFields="//@entities.0/@groups.1/@fields.0 //@entities.0/@groups.1/@fields.1 //@entities.0/@groups.2/@fields.0 //@entities.0/@groups.2/@fields.1 //@entities.0/@groups.2/@fields.2 //@entities.0/@groups.4/@fields.2" mainFields="//@entities.0/@groups.1/@fields.0" secondaryFields="//@entities.0/@groups.1/@fields.1" color="30a05f" creators="//@roles.0 //@roles.1">
+    <descriptions display="School Assessment" locale="en"/>
+    <groups name="Survey" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="AA">
+      <descriptions display="Assessment Conducted By" locale="en"/>
+      <fields xsi:type="imogene:MainRelationFieldEntity" name="SurveyTeam" shortName="AAA" entity="SurveyTeam" cardinality="1">
+        <descriptions display="Team number" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:DateField" name="SurveyDate" shortName="AAB">
+        <descriptions display="Survey date" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:MainRelationFieldEntity" name="SurveyVerifiedBy" shortName="AAC" entity="SurveyVerifiedBy" cardinality="1">
+        <descriptions display="Verified by" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="School" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="AB">
+      <descriptions display="School" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="SemisCode" shortName="ABA" required="true" calculationFunctionName="">
+        <descriptions display="SEMIS code" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:TextField" name="SchoolName" shortName="ABB" required="true">
+        <descriptions display="School name" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="SchoolType" shortName="ABC" defaultValue="" required="true">
+        <descriptions display="School type" locale="en"/>
+        <enumValues value="1" name="Primary">
+          <descriptions display="Primary" locale="en"/>
+        </enumValues>
+        <enumValues value="2" name="Middle">
+          <descriptions display="Middle" locale="en"/>
+        </enumValues>
+        <enumValues value="3" name="Elementary">
+          <descriptions display="Elementary" locale="en"/>
+        </enumValues>
+        <enumValues value="4" name="High">
+          <descriptions display="High" locale="en"/>
+        </enumValues>
+        <enumValues value="5" name="HighSecondary">
+          <descriptions display="High Secondary" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:FloatField" name="Lon" shortName="ABD" required="true" min="66.6" max="67.6" DecimalNumber="6">
+        <descriptions display="Lon" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:FloatField" name="Lat" shortName="ABE" required="true" min="24.7" max="25.7" DecimalNumber="6">
+        <descriptions display="Lat" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:GeoField" name="GpsCoords" shortName="ABF" hidden="true">
+        <descriptions display="GPS coordinates" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="SchoolLanguage" shortName="ABG" multipleSelection="true">
+        <descriptions display="School language" locale="en"/>
+        <enumValues value="1" name="English">
+          <descriptions display="English" locale="en"/>
+        </enumValues>
+        <enumValues value="2" name="Sindhi">
+          <descriptions display="Sindhi" locale="en"/>
+        </enumValues>
+        <enumValues value="3" name="Urdu">
+          <descriptions display="Urdu" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:MainRelationFieldEntity" name="DistrictName" shortName="ABH" required="true" entity="District" cardinality="1">
+        <descriptions display="District" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:MainRelationFieldEntity" name="TehsilName" shortName="ABI" required="true" entity="Tehsil" cardinality="1">
+        <descriptions display="Tehsil" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:MainRelationFieldEntity" name="UnionCouncilName" shortName="ABJ" required="true" entity="UnionCouncil" cardinality="1">
+        <descriptions display="Union Council" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:MainRelationFieldEntity" name="VillageName" shortName="ABK" required="true" entity="Village" cardinality="1">
+        <descriptions display="City/Village" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="Description" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="AC">
+      <descriptions display="School Assesment" locale="en"/>
+      <fields xsi:type="imogene:EnumField" name="FloodAffected" shortName="ACA" defaultValue="0">
+        <descriptions display="School is 2010 flood affected" locale="en"/>
+        <enumValues value="1" name="Yes">
+          <descriptions display="Yes" locale="en"/>
+        </enumValues>
+        <enumValues name="No">
+          <descriptions display="No" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="GhostSchool" shortName="ACB" defaultValue="0">
+        <descriptions display="Ghost school (facility not used)?" locale="en"/>
+        <enumValues value="1" name="Yes">
+          <descriptions display="Yes" locale="en"/>
+        </enumValues>
+        <enumValues name="No">
+          <descriptions display="No" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="SmcFunctional" shortName="ACC" defaultValue="1">
+        <descriptions display="School Management Committee (SMC) functional?" locale="en"/>
+        <enumValues value="1" name="Yes">
+          <descriptions display="Yes" locale="en"/>
+        </enumValues>
+        <enumValues name="No">
+          <descriptions display="No" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:MainRelationFieldEntity" name="SchoolRegistration" shortName="ACD" entity="SchoolDemoRegistered" cardinality="1">
+        <descriptions display="No. of students registered" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:MainRelationFieldEntity" name="SchoolDemographics" shortName="ACE" entity="SchoolDemoActual" cardinality="1">
+        <descriptions display="No. of students actual" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="SharingWall" shortName="ACF" defaultValue="0">
+        <descriptions display="Sharing same wall or land area" locale="en"/>
+        <enumValues value="1" name="Yes">
+          <descriptions display="Yes" locale="en"/>
+        </enumValues>
+        <enumValues name="No">
+          <descriptions display="No" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:MainRelationFieldEntity" name="SchoolSharingWall" shortName="ACG" entity="SchoolSemisCode">
+        <descriptions display="School(s)" locale="en"/>
+        <fieldDependentVisibility dependencyField="//@entities.0/@groups.2/@fields.5" dependencyFieldValue="1"/>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="SharingBoundary" shortName="ACH" defaultValue="0">
+        <descriptions display="Within same boundary wall or premises" locale="en"/>
+        <enumValues value="1" name="Yes">
+          <descriptions display="Yes" locale="en"/>
+        </enumValues>
+        <enumValues name="No">
+          <descriptions display="No" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:MainRelationFieldEntity" name="SchoolSharingBoundary" shortName="ACI" entity="SchoolSemisCode">
+        <descriptions display="School(s)" locale="en"/>
+        <fieldDependentVisibility dependencyField="//@entities.0/@groups.2/@fields.7" dependencyFieldValue="1"/>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="CloserThan500m" shortName="ACJ" defaultValue="0">
+        <descriptions display="Located closer than 1,500 ft (500m)" locale="en"/>
+        <enumValues value="1" name="Yes">
+          <descriptions display="Yes" locale="en"/>
+        </enumValues>
+        <enumValues name="No">
+          <descriptions display="No" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:MainRelationFieldEntity" name="SchoolCloserThan500m" shortName="ACK" entity="SchoolSemisCode">
+        <descriptions display="School(s)" locale="en"/>
+        <fieldDependentVisibility dependencyField="//@entities.0/@groups.2/@fields.9" dependencyFieldValue="1"/>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="Merged" shortName="ACL" defaultValue="0" required="true">
+        <descriptions display="School is consolidated/merged already" locale="en"/>
+        <enumValues value="1" name="Yes">
+          <descriptions display="Yes" locale="en"/>
+        </enumValues>
+        <enumValues name="No">
+          <descriptions display="No" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:MainRelationFieldEntity" name="SchoolMergedName" shortName="ACM" required="true" entity="SchoolSemisCode">
+        <descriptions display="School name" locale="en"/>
+        <fieldDependentVisibility dependencyField="//@entities.0/@groups.2/@fields.11" dependencyFieldValue="1"/>
+      </fields>
+    </groups>
+    <groups name="GeneralInformation" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="AD">
+      <descriptions display="General Information" locale="en"/>
+      <fields xsi:type="imogene:EnumField" name="SchoolShelter" shortName="ADAA" defaultValue="0">
+        <descriptions display="Is the school shelterless" locale="en"/>
+        <enumValues value="1" name="Yes">
+          <descriptions display="Yes" locale="en"/>
+        </enumValues>
+        <enumValues name="No">
+          <descriptions display="No" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="SchoolFacilityProvidedBy" shortName="ADAB">
+        <descriptions display="Facility provided by" locale="en"/>
+        <fieldDependentVisibility dependencyField="//@entities.0/@groups.3/@fields.0" dependencyFieldValue="1"/>
+        <enumValues value="1" name="Private">
+          <descriptions display="Private" locale="en"/>
+        </enumValues>
+        <enumValues value="2" name="Government">
+          <descriptions display="Government" locale="en"/>
+        </enumValues>
+        <enumValues value="3" name="Community">
+          <descriptions display="Community" locale="en"/>
+        </enumValues>
+        <enumValues value="4" name="Other">
+          <descriptions display="Other" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:TextField" name="SchoolFacilityProvidedOther" shortName="ADAC">
+        <descriptions display="Description" locale="en"/>
+        <fieldDependentVisibility dependencyField="//@entities.0/@groups.3/@fields.1" dependencyFieldValue="4"/>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="OrgSupport" shortName="ADAD" defaultValue="0">
+        <descriptions display="Support by other organizations" locale="en"/>
+        <enumValues value="1" name="Yes">
+          <descriptions display="Yes" locale="en"/>
+        </enumValues>
+        <enumValues name="No">
+          <descriptions display="No" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="OrgYear" shortName="ADAE">
+        <descriptions display="Year (yyyy)" locale="en"/>
+        <fieldDependentVisibility dependencyField="//@entities.0/@groups.3/@fields.3" dependencyFieldValue="1"/>
+      </fields>
+      <fields xsi:type="imogene:MainRelationFieldEntity" name="GiDonor" shortName="ADAF" entity="Donors" cardinality="1">
+        <descriptions display="Donor" locale="en"/>
+        <fieldDependentVisibility dependencyField="//@entities.0/@groups.3/@fields.3" dependencyFieldValue="1"/>
+      </fields>
+      <fields xsi:type="imogene:MainRelationFieldEntity" name="GiOrganization" shortName="ADAG" entity="Organizations" cardinality="1">
+        <descriptions display="Organization" locale="en"/>
+        <fieldDependentVisibility dependencyField="//@entities.0/@groups.3/@fields.3" dependencyFieldValue="1"/>
+      </fields>
+      <fields xsi:type="imogene:TextField" name="OrgSupportDesc" shortName="ADAH">
+        <descriptions display="Kind of support" locale="en"/>
+        <fieldDependentVisibility dependencyField="//@entities.0/@groups.3/@fields.3" dependencyFieldValue="1"/>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="UsaidSupport" shortName="ADAI" defaultValue="0">
+        <descriptions display="School is/was supported by USAID" locale="en"/>
+        <enumValues value="1" name="Yes">
+          <descriptions display="Yes" locale="en"/>
+        </enumValues>
+        <enumValues name="No">
+          <descriptions display="No" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="UsaidYear" shortName="ADAJ">
+        <descriptions display="Year" locale="en"/>
+        <fieldDependentVisibility dependencyField="//@entities.0/@groups.3/@fields.8" dependencyFieldValue="1"/>
+      </fields>
+      <fields xsi:type="imogene:TextField" name="UsaidSupportDesc" shortName="ADAK">
+        <descriptions display="Kind of support" locale="en"/>
+        <fieldDependentVisibility dependencyField="//@entities.0/@groups.3/@fields.8" dependencyFieldValue="1"/>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="WaterConnection" shortName="ADAL" defaultValue="0">
+        <descriptions display="Water connection" locale="en"/>
+        <enumValues value="1" name="Connected">
+          <descriptions display="Connected" locale="en"/>
+        </enumValues>
+        <enumValues name="NotConnected">
+          <descriptions display="Not connected" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:MainRelationFieldEntity" name="WaterSource" shortName="ADAM" entity="WaterSource" cardinality="1">
+        <descriptions display="Source" help="" locale="en"/>
+        <fieldDependentVisibility dependencyField="//@entities.0/@groups.3/@fields.11" dependencyFieldValue="1"/>
+      </fields>
+      <fields xsi:type="imogene:MainRelationFieldEntity" name="WaterPossibleSource" shortName="ADAN" entity="WaterSource" cardinality="1">
+        <descriptions display="Possible source for water connection" help="" locale="en"/>
+        <fieldDependentVisibility dependencyField="//@entities.0/@groups.3/@fields.11" dependencyFieldValue="0"/>
+      </fields>
+      <fields xsi:type="imogene:FloatField" name="WaterPossibleDistance" shortName="ADAO" unit="">
+        <descriptions display="Distance to school (ft)" help="" locale="en"/>
+        <fieldDependentVisibility dependencyField="//@entities.0/@groups.3/@fields.11" dependencyFieldValue="0"/>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="ElectricityConnection" shortName="ADAP" defaultValue="0">
+        <descriptions display="Electricity connection" locale="en"/>
+        <enumValues value="1" name="Connected">
+          <descriptions display="Connected" locale="en"/>
+        </enumValues>
+        <enumValues name="NotConnected">
+          <descriptions display="Not connected" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:FloatField" name="ElectricityPossibleDistance" shortName="ADAQ" unit="">
+        <descriptions display="Distance to next possible connection (ft)" help="" locale="en"/>
+        <fieldDependentVisibility dependencyField="//@entities.0/@groups.3/@fields.15" dependencyFieldValue="0"/>
+      </fields>
+      <fields xsi:type="imogene:FloatField" name="SizeOfCompoundLength" shortName="ADAR" unit="">
+        <descriptions display="Compound length (ft)" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:FloatField" name="SizeOfCompoundWidth" shortName="ADAS" unit="">
+        <descriptions display="Compound width (ft)" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="UndevelopedLand" shortName="ADAT" defaultValue="0">
+        <descriptions display="Undeveloped/land > 20x20ft within compound" locale="en"/>
+        <enumValues value="1" name="Yes">
+          <descriptions display="Yes" locale="en"/>
+        </enumValues>
+        <enumValues name="No">
+          <descriptions display="No" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:FloatField" name="SizeOfUndevelopedLength" shortName="ADAU" unit="">
+        <descriptions display="Length (ft)" locale="en"/>
+        <fieldDependentVisibility dependencyField="//@entities.0/@groups.3/@fields.19" dependencyFieldValue="1"/>
+      </fields>
+      <fields xsi:type="imogene:FloatField" name="SizeOfUndevelopedWidth" shortName="ADAV" unit="">
+        <descriptions display="Width (ft)" locale="en"/>
+        <fieldDependentVisibility dependencyField="//@entities.0/@groups.3/@fields.19" dependencyFieldValue="1"/>
+      </fields>
+      <fields xsi:type="imogene:MainRelationFieldEntity" name="SchoolClassroom" shortName="ADAW" entity="SchoolBuilding" cardinality="1">
+        <descriptions display="Size of classroom buildings" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="DirectSurrounding" shortName="ADAX" defaultValue="0">
+        <descriptions display="Land available for new construction in direct bordering surrounding" locale="en"/>
+        <enumValues value="1" name="Yes">
+          <descriptions display="Yes" locale="en"/>
+        </enumValues>
+        <enumValues name="No">
+          <descriptions display="No" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:MainRelationFieldEntity" name="DirectSurroundingDesc" shortName="ADAY" entity="DirectSurrounding" cardinality="1">
+        <descriptions display="Direct surrounding" locale="en"/>
+        <fieldDependentVisibility dependencyField="//@entities.0/@groups.3/@fields.23" dependencyFieldValue="1"/>
+      </fields>
+      <fields xsi:type="imogene:FloatField" name="AverageTravelTime" shortName="ADAZ">
+        <descriptions display="Average travel time for students to reach school (min)" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="AverageTravelTimeDesc" shortName="ADBA" defaultValue="1">
+        <descriptions display="Travel mode" locale="en"/>
+        <enumValues value="1" name="Walking">
+          <descriptions display="Walking" locale="en"/>
+        </enumValues>
+        <enumValues value="2" name="Vehicle">
+          <descriptions display="Vehicle" locale="en"/>
+        </enumValues>
+      </fields>
+    </groups>
+    <groups name="DamageAssessment" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="AE">
+      <descriptions display="Damage Assessment" locale="en"/>
+      <fields xsi:type="imogene:EnumField" name="BuildingDamage" shortName="AEA" defaultValue="">
+        <descriptions display="School building condition" locale="en"/>
+        <enumValues name="NoDamage">
+          <descriptions display="No damage" locale="en"/>
+        </enumValues>
+        <enumValues value="1" name="PartiallyDamaged">
+          <descriptions display="Partially damaged" locale="en"/>
+        </enumValues>
+        <enumValues value="2" name="FullyDamaged">
+          <descriptions display="Fully damaged" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="DamagePerCent" shortName="AEB" defaultValue="">
+        <descriptions display="Damage (%)" help="" locale="en"/>
+        <fieldDependentVisibility dependencyField="//@entities.0/@groups.4/@fields.0" dependencyFieldValue="1|2"/>
+        <enumValues value="1" name="LessThan6">
+          <descriptions display="1 - 5 %" locale="en"/>
+        </enumValues>
+        <enumValues value="2" name="Between6to20">
+          <descriptions display="6 - 20 %" locale="en"/>
+        </enumValues>
+        <enumValues value="3" name="Between21to35">
+          <descriptions display="21 - 35 %" locale="en"/>
+        </enumValues>
+        <enumValues value="4" name="GreaterThan36">
+          <descriptions display=">35 %" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="BuildingCondition" shortName="AEC" defaultValue="">
+        <descriptions display="Overall condition" locale="en"/>
+        <enumValues value="5" name="Excellent">
+          <descriptions display="Excellent" locale="en"/>
+        </enumValues>
+        <enumValues value="4" name="Good">
+          <descriptions display="Good" locale="en"/>
+        </enumValues>
+        <enumValues value="3" name="Fair">
+          <descriptions display="Fair" locale="en"/>
+        </enumValues>
+        <enumValues value="2" name="Poor">
+          <descriptions display="Poor" locale="en"/>
+        </enumValues>
+        <enumValues value="1" name="VeryPoor">
+          <descriptions display="VeryPoor" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="RoofStructure" shortName="AED">
+        <descriptions display="Roof structure/top beam" locale="en"/>
+        <enumValues value="1" name="Safe">
+          <descriptions display="Safe" locale="en"/>
+        </enumValues>
+        <enumValues name="Dangerous">
+          <descriptions display="Dangerous" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="LoadBearing" shortName="AEE">
+        <descriptions display="Load bearing elements" locale="en"/>
+        <enumValues value="1" name="Safe">
+          <descriptions display="Safe" locale="en"/>
+        </enumValues>
+        <enumValues name="Dangerous">
+          <descriptions display="Dangerous" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="DamageCause" shortName="AEF">
+        <descriptions display="Damage due to" locale="en"/>
+        <enumValues value="1" name="Earthquake">
+          <descriptions display="Earthquake" locale="en"/>
+        </enumValues>
+        <enumValues value="2" name="Flood">
+          <descriptions display="Flood" locale="en"/>
+        </enumValues>
+        <enumValues value="3" name="Conflict">
+          <descriptions display="Conflict" locale="en"/>
+        </enumValues>
+        <enumValues value="4" name="HeavyRain">
+          <descriptions display="Heavy rain" locale="en"/>
+        </enumValues>
+        <enumValues value="5" name="Others">
+          <descriptions display="Others" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:TextField" name="DamageOther" shortName="AEG">
+        <descriptions display="Description" locale="en"/>
+        <fieldDependentVisibility dependencyField="//@entities.0/@groups.4/@fields.5" dependencyFieldValue="5"/>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="BoundaryWall" shortName="AEH">
+        <descriptions display="Boundary wall" locale="en"/>
+        <enumValues value="1" name="Exists">
+          <descriptions display="Exists" locale="en"/>
+        </enumValues>
+        <enumValues name="NotRequired">
+          <descriptions display="Not required" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:FloatField" name="TotalLength" shortName="AEI">
+        <descriptions display="Total length (ft)" locale="en"/>
+        <fieldDependentVisibility dependencyField="//@entities.0/@groups.4/@fields.7" dependencyFieldValue="1"/>
+      </fields>
+      <fields xsi:type="imogene:FloatField" name="WallDestroyedTo" shortName="AEJ">
+        <descriptions display="Destroyed to (ft)" locale="en"/>
+        <fieldDependentVisibility dependencyField="//@entities.0/@groups.4/@fields.7" dependencyFieldValue="1"/>
+      </fields>
+    </groups>
+    <groups name="DrrAssessment" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="AF">
+      <descriptions display="DRR Assessment" locale="en"/>
+      <fields xsi:type="imogene:EnumField" name="IndusKachaArea" shortName="AFA" defaultValue="0">
+        <descriptions display="School is located \u003c 1,500 ft (500m) to Indus in Kacha area" locale="en"/>
+        <enumValues value="1" name="Yes">
+          <descriptions display="Yes" locale="en"/>
+        </enumValues>
+        <enumValues name="No">
+          <descriptions display="No" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="Landslides" shortName="AFB" defaultValue="0">
+        <descriptions display="School site is prone to landslides (due to earthquake or heavy rain)" locale="en"/>
+        <enumValues value="1" name="Yes">
+          <descriptions display="Yes" locale="en"/>
+        </enumValues>
+        <enumValues name="No">
+          <descriptions display="No" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="NearStreamOrRiver" shortName="AFC" defaultValue="0">
+        <descriptions display="Distance to next stream/river \u003c 300 ft (100m)" help="" locale="en"/>
+        <enumValues value="1" name="Yes">
+          <descriptions display="Yes" locale="en"/>
+        </enumValues>
+        <enumValues name="No">
+          <descriptions display="No stream \u003c 300ft" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:FloatField" name="DistanceToRiver" shortName="AFD">
+        <descriptions display="Distance (ft)" locale="en"/>
+        <fieldDependentVisibility dependencyField="//@entities.0/@groups.5/@fields.2" dependencyFieldValue="1"/>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="StreamHazard" shortName="AFE" defaultValue="0" multipleSelection="true">
+        <descriptions display="Stream is hazardous in case of" help="" locale="en"/>
+        <fieldDependentVisibility dependencyField="//@entities.0/@groups.5/@fields.2" dependencyFieldValue="1"/>
+        <enumValues value="1" name="MajorFlood">
+          <descriptions display="Major flood" locale="en"/>
+        </enumValues>
+        <enumValues value="2" name="SeasonalFlood">
+          <descriptions display="Seasonal flood" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="OtherHazard" shortName="AFF" defaultValue="0">
+        <descriptions display="Is school prone to any other potential natural hazards" help="" locale="en"/>
+        <enumValues value="1" name="Yes">
+          <descriptions display="Yes" locale="en"/>
+        </enumValues>
+        <enumValues name="No">
+          <descriptions display="No" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:TextField" name="Hazard" shortName="AFG" defaultValue="">
+        <descriptions display="Remarks/Specify hazard" locale="en"/>
+        <fieldDependentVisibility dependencyField="//@entities.0/@groups.5/@fields.5" dependencyFieldValue="1"/>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="IndustrialPolution" shortName="AFH" defaultValue="0">
+        <descriptions display="Is school prone to industrial polution" help="" locale="en"/>
+        <enumValues value="1" name="Yes">
+          <descriptions display="Yes" locale="en"/>
+        </enumValues>
+        <enumValues name="No">
+          <descriptions display="No" locale="en"/>
+        </enumValues>
+      </fields>
+    </groups>
+    <groups name="Conclusion" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="AG">
+      <descriptions display="Conclusion" locale="en"/>
+      <fields xsi:type="imogene:EnumField" name="Rehabilitation" shortName="AGA" defaultValue="0">
+        <descriptions display="Rehabilitation of school buildings recommended" locale="en"/>
+        <enumValues value="1" name="Yes">
+          <descriptions display="Yes" locale="en"/>
+        </enumValues>
+        <enumValues name="No">
+          <descriptions display="No" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="RehabilitationOfBeam" shortName="AGB" defaultValue="0">
+        <descriptions display="Rehabilitation of roof structure/top beam recommended" help="" locale="en"/>
+        <enumValues value="1" name="Yes">
+          <descriptions display="Yes" locale="en"/>
+        </enumValues>
+        <enumValues name="No">
+          <descriptions display="No" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="Reconstruction" shortName="AGC" defaultValue="0">
+        <descriptions display="Reconstruction recommended" help="" locale="en"/>
+        <enumValues value="1" name="Yes">
+          <descriptions display="Yes" locale="en"/>
+        </enumValues>
+        <enumValues name="No">
+          <descriptions display="No" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="Relocation" shortName="AGD" defaultValue="0">
+        <descriptions display="Relocation recommended" help="" locale="en"/>
+        <enumValues value="1" name="Yes">
+          <descriptions display="Yes" locale="en"/>
+        </enumValues>
+        <enumValues name="No">
+          <descriptions display="No" locale="en"/>
+        </enumValues>
+      </fields>
+    </groups>
+    <groups name="Remarks" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="AH">
+      <descriptions display="Remarks" locale="en"/>
+      <fields xsi:type="imogene:TextAreaField" name="Comments" shortName="AHA">
+        <descriptions display="Comments" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="SchoolImages" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="AI">
+      <descriptions display="School Images" help="" locale="en"/>
+      <fields xsi:type="imogene:MainRelationFieldEntity" name="SchoolPhotos" shortName="AIA" entity="SchoolPhoto">
+        <descriptions display="School photos" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:MainRelationFieldEntity" name="SchoolDrawings" shortName="AIB" entity="SchoolDrawing">
+        <descriptions display="School drawings" locale="en"/>
+      </fields>
+    </groups>
+  </entities>
+  <entities name="SurveyTeam" shortName="Q" columnFields="//@entities.1/@groups.0/@fields.0 //@entities.1/@groups.0/@fields.1 //@entities.1/@groups.0/@fields.2" mainFields="//@entities.1/@groups.0/@fields.0" color="30a05f" creators="//@roles.0 //@roles.1">
+    <descriptions display="Survey Team" locale="en"/>
+    <groups name="Description" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="QA">
+      <descriptions display="Description" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="TeamNumber" shortName="QAA">
+        <descriptions display="Team number" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:MainRelationFieldEntity" name="Engineer" shortName="QAB" entity="Engineer" cardinality="1">
+        <descriptions display="Engineer" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:MainRelationFieldEntity" name="Enumerator" shortName="QAC" entity="Enumerator" cardinality="1">
+        <descriptions display="Enumerator" locale="en"/>
+      </fields>
+    </groups>
+  </entities>
+  <entities name="SurveyVerifiedBy" shortName="R" columnFields="//@entities.2/@groups.0/@fields.0 //@entities.2/@groups.0/@fields.1 //@entities.2/@groups.0/@fields.2 //@entities.2/@groups.0/@fields.3" mainFields="//@entities.2/@groups.0/@fields.0 //@entities.2/@groups.0/@fields.1" color="30a05f" creators="//@roles.0 //@roles.1">
+    <descriptions display="Survey Information Source" locale="en"/>
+    <groups name="Description" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="RA">
+      <descriptions display="Survey Information Source" locale="en"/>
+      <fields xsi:type="imogene:TextField" name="FirstName" shortName="RAA">
+        <descriptions display="First name" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:TextField" name="LastName" shortName="RAB">
+        <descriptions display="Last name" help="" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:TextField" name="SourcePosition" shortName="RAC">
+        <descriptions display="Position" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:PhoneField" name="Phone" shortName="RAD">
+        <descriptions display="Phone" locale="en"/>
+      </fields>
+    </groups>
+  </entities>
+  <entities name="SchoolSemisCode" shortName="K" columnFields="//@entities.3/@groups.0/@fields.0" mainFields="//@entities.3/@groups.0/@fields.0" icon="" color="30a05f" creators="//@roles.0 //@roles.1">
+    <descriptions display="Semis Code" locale="en"/>
+    <groups name="Description" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="KA" icon="">
+      <descriptions display="Description" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="SemisCode" shortName="KAA" required="true">
+        <descriptions display="Semis code" locale="en"/>
+      </fields>
+    </groups>
+  </entities>
+  <entities name="SchoolDemoRegistered" shortName="I" columnFields="//@entities.4/@groups.0/@fields.0 //@entities.4/@groups.0/@fields.1 //@entities.4/@groups.2/@fields.0 //@entities.4/@groups.2/@fields.1 //@entities.4/@groups.4/@fields.0 //@entities.4/@groups.4/@fields.1 //@entities.4/@groups.6/@fields.0 //@entities.4/@groups.6/@fields.1 //@entities.4/@groups.7/@fields.0 //@entities.4/@groups.7/@fields.1 //@entities.4/@groups.8/@fields.0 //@entities.4/@groups.8/@fields.1 //@entities.4/@groups.1/@fields.0 //@entities.4/@groups.3/@fields.0 //@entities.4/@groups.5/@fields.0 //@entities.4/@groups.1/@fields.1 //@entities.4/@groups.3/@fields.1 //@entities.4/@groups.5/@fields.1" mainFields="//@entities.4/@groups.1/@fields.0" icon="" color="30a05f" creators="//@roles.0 //@roles.1">
+    <descriptions display="School Popn Registration" locale="en"/>
+    <groups name="GradeKg" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="IA">
+      <descriptions display="Grade KG" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="MaleKg" shortName="IAA" defaultValue="" unit="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="FemaleKg" shortName="IAB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="TrainedTeacher" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="IB">
+      <descriptions display="Trained teacher" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="MaleTrained" shortName="IBA" defaultValue="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="FemaleTrained" shortName="IBB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="Grade1" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="IC">
+      <descriptions display="Grade 1" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="Male1" shortName="ICA" defaultValue="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="Female1" shortName="ICB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="UnTrained" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="ID">
+      <descriptions display="Untrained teacher" help="" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="MaleUntrained" shortName="IDA" defaultValue="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="FemaleUntrained" shortName="IDB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="Grade2" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="IE">
+      <descriptions display="Grade 2" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="Male2" shortName="IEA" defaultValue="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="Female2" shortName="IEB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="SupportStaff" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="IF">
+      <descriptions display="Support staff" help="" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="MaleSupportStaff" shortName="IFA" defaultValue="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="FemaleSupportStaff" shortName="IFB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="Grade3" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="IG">
+      <descriptions display="Grade 3" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="Male3" shortName="IGA" defaultValue="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="Female3" shortName="IGB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="Grade4" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="IH">
+      <descriptions display="Grade 4" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="Male4" shortName="IHA" defaultValue="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="Female4" shortName="IHB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="Grade5" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="II">
+      <descriptions display="Grade 5" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="Male5" shortName="IIA" defaultValue="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="Female5" shortName="IIB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="Grade6" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="IJ">
+      <descriptions display="Grade 6" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="Male6" shortName="IJA" defaultValue="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="Female6" shortName="IJB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="Grade7" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="IK">
+      <descriptions display="Grade 7" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="Male7" shortName="IKA" defaultValue="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="Female7" shortName="IKB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="Grade8" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="IL">
+      <descriptions display="Grade 8" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="Male8" shortName="ILA" defaultValue="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="Female8" shortName="ILB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="Grade9" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="IM">
+      <descriptions display="Grade 9" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="Male9" shortName="IMA" defaultValue="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="Female9" shortName="IMB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="Grade10" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="IN">
+      <descriptions display="Grade 10" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="Male10" shortName="INA" defaultValue="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="Female10" shortName="INB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="Grade11" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="IO">
+      <descriptions display="Grade 11" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="Male11" shortName="IOA" defaultValue="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="Female11" shortName="IOB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="Grade12" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="IP">
+      <descriptions display="Grade 12" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="Male12" shortName="IPA" defaultValue="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="Female12" shortName="IPB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+  </entities>
+  <entities name="SchoolDemoActual" shortName="J" columnFields="//@entities.5/@groups.0/@fields.0 //@entities.5/@groups.0/@fields.1 //@entities.5/@groups.1/@fields.0 //@entities.5/@groups.1/@fields.1 //@entities.5/@groups.2/@fields.0 //@entities.5/@groups.2/@fields.1 //@entities.5/@groups.3/@fields.0 //@entities.5/@groups.3/@fields.1 //@entities.5/@groups.4/@fields.0 //@entities.5/@groups.4/@fields.1 //@entities.5/@groups.5/@fields.0 //@entities.5/@groups.5/@fields.1" mainFields="//@entities.5/@groups.1/@fields.0" icon="" color="30a05f" creators="//@roles.0 //@roles.1">
+    <descriptions display="School Popn Actual" locale="en"/>
+    <groups name="GradeKg" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="JA">
+      <descriptions display="Grade KG" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="MaleKg" shortName="JAA" defaultValue="" unit="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="FemaleKg" shortName="JAB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="Grade1" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="JB">
+      <descriptions display="Grade 1" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="Male1" shortName="JBA" defaultValue="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="Female1" shortName="JBB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="Grade2" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="JC">
+      <descriptions display="Grade 2" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="Male2" shortName="JCA" defaultValue="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="Female2" shortName="JCB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="Grade3" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="JD">
+      <descriptions display="Grade 3" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="Male3" shortName="JDA" defaultValue="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="Female3" shortName="JDB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="Grade4" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="JE">
+      <descriptions display="Grade 4" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="Male4" shortName="JEA" defaultValue="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="Female4" shortName="JEB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="Grade5" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="JF">
+      <descriptions display="Grade 5" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="Male5" shortName="JFA" defaultValue="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="Female5" shortName="JFB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="Grade6" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="JG">
+      <descriptions display="Grade 6" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="Male6" shortName="JGA" defaultValue="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="Female6" shortName="JGB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="Grade7" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="JH">
+      <descriptions display="Grade 7" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="Male7" shortName="JHA" defaultValue="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="Female7" shortName="JHB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="Grade8" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="JI">
+      <descriptions display="Grade 8" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="Male8" shortName="JIA" defaultValue="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="Female8" shortName="JIB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="Grade9" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="JJ">
+      <descriptions display="Grade 9" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="Male9" shortName="JJA" defaultValue="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="Female9" shortName="JJB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="Grade10" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="JK">
+      <descriptions display="Grade 10" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="Male10" shortName="JKA" defaultValue="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="Female10" shortName="JKB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="Grade11" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="JL">
+      <descriptions display="Grade 11" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="Male11" shortName="JLA" defaultValue="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="Female11" shortName="JLB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="Grade12" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="JM">
+      <descriptions display="Grade 12" locale="en"/>
+      <fields xsi:type="imogene:IntegerField" name="Male12" shortName="JMA" defaultValue="">
+        <descriptions display="Male" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="Female12" shortName="JMB" defaultValue="">
+        <descriptions display="Female" locale="en"/>
+      </fields>
+    </groups>
+  </entities>
+  <entities name="SchoolBuilding" shortName="N" columnFields="//@entities.6/@groups.0/@fields.2 //@entities.6/@groups.1/@fields.2 //@entities.6/@groups.2/@fields.2 //@entities.6/@groups.3/@fields.2 //@entities.6/@groups.4/@fields.2 //@entities.6/@groups.5/@fields.2" mainFields="//@entities.6/@groups.0/@fields.2" color="30a05f" creators="//@roles.0 //@roles.1">
+    <descriptions display="School Classroom Buildings" locale="en"/>
+    <groups name="Building1" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="NA" icon="">
+      <descriptions display="Classroom building 1" locale="en"/>
+      <fields xsi:type="imogene:FloatField" name="Building1Length" shortName="NAA">
+        <descriptions display="Building Length" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:FloatField" name="Building1Width" shortName="NAB">
+        <descriptions display="Building width" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="Building1Storey" shortName="NAC">
+        <descriptions display="Single/double storey" locale="en"/>
+        <enumValues value="1" name="Single">
+          <descriptions display="Single" locale="en"/>
+        </enumValues>
+        <enumValues value="2" name="Double">
+          <descriptions display="Double" locale="en"/>
+        </enumValues>
+      </fields>
+    </groups>
+    <groups name="Building2" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="NB" icon="">
+      <descriptions display="Classroom building 2" locale="en"/>
+      <fields xsi:type="imogene:FloatField" name="Building2Length" shortName="NBA">
+        <descriptions display="Building Length" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:FloatField" name="Building2Width" shortName="NBB">
+        <descriptions display="Building width" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="Building2Storey" shortName="NBC">
+        <descriptions display="Single/double storey" locale="en"/>
+        <enumValues value="1" name="Single">
+          <descriptions display="Single" locale="en"/>
+        </enumValues>
+        <enumValues value="2" name="Double">
+          <descriptions display="Double" locale="en"/>
+        </enumValues>
+      </fields>
+    </groups>
+    <groups name="Building3" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="NC" icon="">
+      <descriptions display="Classroom building 3" locale="en"/>
+      <fields xsi:type="imogene:FloatField" name="Building3Length" shortName="NCA">
+        <descriptions display="Building Length" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:FloatField" name="Building3Width" shortName="NCB">
+        <descriptions display="Building width" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="Building3Storey" shortName="NCC">
+        <descriptions display="Single/double storey" locale="en"/>
+        <enumValues value="1" name="Single">
+          <descriptions display="Single" locale="en"/>
+        </enumValues>
+        <enumValues value="2" name="Double">
+          <descriptions display="Double" locale="en"/>
+        </enumValues>
+      </fields>
+    </groups>
+    <groups name="Building4" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="ND" icon="">
+      <descriptions display="Classroom building 4" help="" locale="en"/>
+      <fields xsi:type="imogene:FloatField" name="Building4Length" shortName="NDA">
+        <descriptions display="Building Length" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:FloatField" name="Building4Width" shortName="NDB">
+        <descriptions display="Building width" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="Building4Storey" shortName="NDC">
+        <descriptions display="Single/double storey" locale="en"/>
+        <enumValues value="1" name="Single">
+          <descriptions display="Single" locale="en"/>
+        </enumValues>
+        <enumValues value="2" name="Double">
+          <descriptions display="Double" locale="en"/>
+        </enumValues>
+      </fields>
+    </groups>
+    <groups name="Building5" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="NE" icon="">
+      <descriptions display="Classroom building 5" locale="en"/>
+      <fields xsi:type="imogene:FloatField" name="Building5Length" shortName="NEA">
+        <descriptions display="Building Length" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:FloatField" name="Building5Width" shortName="NEB">
+        <descriptions display="Building width" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="Building5Storey" shortName="NEC">
+        <descriptions display="Single/double storey" locale="en"/>
+        <enumValues value="1" name="Single">
+          <descriptions display="Single" locale="en"/>
+        </enumValues>
+        <enumValues value="2" name="Double">
+          <descriptions display="Double" locale="en"/>
+        </enumValues>
+      </fields>
+    </groups>
+    <groups name="Building6" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="NF" icon="">
+      <descriptions display="Classroom building 6" locale="en"/>
+      <fields xsi:type="imogene:FloatField" name="Building6Length" shortName="NFA">
+        <descriptions display="Building Length" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:FloatField" name="Building6Width" shortName="NFB">
+        <descriptions display="Building width" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="Building6Storey" shortName="NFC">
+        <descriptions display="Single/double storey" locale="en"/>
+        <enumValues value="1" name="Single">
+          <descriptions display="Single" locale="en"/>
+        </enumValues>
+        <enumValues value="2" name="Double">
+          <descriptions display="Double" locale="en"/>
+        </enumValues>
+      </fields>
+    </groups>
+  </entities>
+  <entities name="DirectSurrounding" shortName="O" columnFields="//@entities.7/@groups.0/@fields.0 //@entities.7/@groups.1/@fields.0 //@entities.7/@groups.2/@fields.0 //@entities.7/@groups.3/@fields.0" mainFields="//@entities.7/@groups.0/@fields.0 //@entities.7/@groups.1/@fields.0 //@entities.7/@groups.2/@fields.0 //@entities.7/@groups.3/@fields.0" color="30a05f" creators="//@roles.0 //@roles.1">
+    <descriptions display="Direct Surrounding" locale="en"/>
+    <groups name="North" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="OA" icon="">
+      <descriptions display="North" help="" locale="en"/>
+      <fields xsi:type="imogene:EnumField" name="NorthAvailable" shortName="OAA" defaultValue="0">
+        <descriptions display="Land available for new constructon" help="" locale="en"/>
+        <enumValues value="1" name="Yes">
+          <descriptions display="Yes" locale="en"/>
+        </enumValues>
+        <enumValues name="No">
+          <descriptions display="No" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="NorthAvailableLand" shortName="OAB" min="0" max="50000">
+        <descriptions display="Square foot available" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:MainRelationFieldEntity" name="NorthLandUsage" shortName="OAC" entity="LandUsage" cardinality="1">
+        <descriptions display="Usage of land" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="East" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="OB" icon="">
+      <descriptions display="East" help="" locale="en"/>
+      <fields xsi:type="imogene:EnumField" name="EastAvailable" shortName="OBA" defaultValue="0">
+        <descriptions display="Land available for new constructon" help="" locale="en"/>
+        <enumValues value="1" name="Yes">
+          <descriptions display="Yes" locale="en"/>
+        </enumValues>
+        <enumValues name="No">
+          <descriptions display="No" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="EastAvailableLand" shortName="OBB" min="0" max="50000">
+        <descriptions display="Square foot available" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:MainRelationFieldEntity" name="EastLandUsage" shortName="OBC" entity="LandUsage" cardinality="1">
+        <descriptions display="Usage of land" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="South" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="OC" icon="">
+      <descriptions display="South" help="" locale="en"/>
+      <fields xsi:type="imogene:EnumField" name="SouthAvailable" shortName="OCA" defaultValue="0">
+        <descriptions display="Land available for new constructon" help="" locale="en"/>
+        <enumValues value="1" name="Yes">
+          <descriptions display="Yes" locale="en"/>
+        </enumValues>
+        <enumValues name="No">
+          <descriptions display="No" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="SouthAvailableLand" shortName="OCB" min="0" max="50000">
+        <descriptions display="Square foot available" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:MainRelationFieldEntity" name="SouthLandUsage" shortName="OCC" entity="LandUsage" cardinality="1">
+        <descriptions display="Usage of land" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="West" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="OD" icon="">
+      <descriptions display="West" help="" locale="en"/>
+      <fields xsi:type="imogene:EnumField" name="WestAvailable" shortName="ODA" defaultValue="0">
+        <descriptions display="Land available for new constructon" help="" locale="en"/>
+        <enumValues value="1" name="Yes">
+          <descriptions display="Yes" locale="en"/>
+        </enumValues>
+        <enumValues name="No">
+          <descriptions display="No" locale="en"/>
+        </enumValues>
+      </fields>
+      <fields xsi:type="imogene:IntegerField" name="WestAvailableLand" shortName="ODB" min="0" max="50000">
+        <descriptions display="Square foot available" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:MainRelationFieldEntity" name="WestLandUsage" shortName="ODC" entity="LandUsage" cardinality="1">
+        <descriptions display="Usage of land" locale="en"/>
+      </fields>
+    </groups>
+    <groups name="LandOwner" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="OE" icon="">
+      <descriptions display="Land Owner" help="" locale="en"/>
+      <fields xsi:type="imogene:TextField" name="FirstName" shortName="OEA">
+        <descriptions display="First name" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:TextField" name="LastName" shortName="OEB">
+        <descriptions display="Last name" help="" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:PhoneField" name="Phone" shortName="OEC">
+        <descriptions display="Phone" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:EnumField" name="Donation" shortName="OED" defaultValue="0">
+        <descriptions display="Owner is willing to donate land" locale="en"/>
+        <enumValues value="1" name="Yes">
+          <descriptions display="Yes" locale="en"/>
+        </enumValues>
+        <enumValues name="No">
+          <descriptions display="No" locale="en"/>
+        </enumValues>
+      </fields>
+    </groups>
+  </entities>
+  <entities name="LandUsage" shortName="B" columnFields="//@entities.8/@groups.0/@fields.0" mainFields="//@entities.8/@groups.0/@fields.0" icon="" color="30a05f" creators="//@roles.0 //@roles.1">
+    <descriptions display="Land Usage" locale="en"/>
+    <groups name="Description" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="BA" icon="">
+      <descriptions display="Description" locale="en"/>
+      <fields xsi:type="imogene:TextField" name="LandUsageDesc" shortName="BAA">
+        <descriptions display="Land usage" locale="en"/>
+      </fields>
+    </groups>
+  </entities>
+  <entities name="WaterSource" shortName="U" columnFields="//@entities.9/@groups.0/@fields.0" mainFields="//@entities.9/@groups.0/@fields.0" icon="" color="30a05f" creators="//@roles.0 //@roles.1">
+    <descriptions display="Water Source" locale="en"/>
+    <groups name="Description" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="UA" icon="">
+      <descriptions display="Description" locale="en"/>
+      <fields xsi:type="imogene:TextField" name="WaterSourceDesc" shortName="UAA">
+        <descriptions display="Water source" locale="en"/>
+      </fields>
+    </groups>
+  </entities>
+  <entities name="SchoolPhoto" shortName="S" columnFields="//@entities.10/@groups.0/@fields.0" mainFields="//@entities.10/@groups.0/@fields.0" color="30a05f" creators="//@roles.0 //@roles.1">
+    <descriptions display="School Photos" help="" locale="en"/>
+    <groups name="Description" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="SA">
+      <descriptions display="Description" locale="en"/>
+      <fields xsi:type="imogene:PhotoField" name="Image" shortName="SAA" category="">
+        <descriptions display="Image" locale="en"/>
+      </fields>
+    </groups>
+  </entities>
+  <entities name="SchoolDrawing" shortName="T" columnFields="//@entities.11/@groups.0/@fields.0" mainFields="//@entities.11/@groups.0/@fields.0" color="30a05f" creators="//@roles.0 //@roles.1">
+    <descriptions display="School Drawing" help="" locale="en"/>
+    <groups name="Description" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="TA">
+      <descriptions display="Description" locale="en"/>
+      <fields xsi:type="imogene:BinaryField" name="Drawing" shortName="TAA" category="">
+        <descriptions display="Drawing" locale="en"/>
+      </fields>
+    </groups>
+  </entities>
+  <entities name="District" shortName="F" columnFields="//@entities.12/@groups.0/@fields.0" mainFields="//@entities.12/@groups.0/@fields.0" color="108FC3" creators="//@roles.0 //@roles.1">
+    <descriptions display="District" locale="en"/>
+    <groups name="Description" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="FA">
+      <descriptions display="Description" locale="en"/>
+      <fields xsi:type="imogene:TextField" name="DistrictName" shortName="FAA">
+        <descriptions display="District name" locale="en"/>
+      </fields>
+    </groups>
+  </entities>
+  <entities name="Tehsil" shortName="G" columnFields="//@entities.13/@groups.0/@fields.0" mainFields="//@entities.13/@groups.0/@fields.0" color="108FC3" creators="//@roles.0 //@roles.1">
+    <descriptions display="Tehsil" locale="en"/>
+    <groups name="Description" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="GA">
+      <descriptions display="Description" locale="en"/>
+      <fields xsi:type="imogene:TextField" name="TehsilName" shortName="GAA">
+        <descriptions display="Tehsil Name" locale="en"/>
+      </fields>
+    </groups>
+  </entities>
+  <entities name="UnionCouncil" shortName="H" columnFields="//@entities.14/@groups.0/@fields.0" mainFields="//@entities.14/@groups.0/@fields.0" color="108FC3" creators="//@roles.0 //@roles.1">
+    <descriptions display="Union Council" locale="en"/>
+    <groups name="Description" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="HA">
+      <descriptions display="Description" locale="en"/>
+      <fields xsi:type="imogene:TextField" name="UnionCouncilName" shortName="HAA">
+        <descriptions display="Union Council name" locale="en"/>
+      </fields>
+    </groups>
+  </entities>
+  <entities name="Village" shortName="P" columnFields="//@entities.15/@groups.0/@fields.0" mainFields="//@entities.15/@groups.0/@fields.0" color="108FC3" creators="//@roles.0 //@roles.1">
+    <descriptions display="Village" locale="en"/>
+    <groups name="Description" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="PA">
+      <descriptions display="Description" locale="en"/>
+      <fields xsi:type="imogene:TextField" name="VillageName" shortName="PAA">
+        <descriptions display="Village name" locale="en"/>
+      </fields>
+    </groups>
+  </entities>
+  <entities name="Donors" shortName="L" columnFields="//@entities.16/@groups.0/@fields.0" mainFields="//@entities.16/@groups.0/@fields.0" color="60d491" creators="//@roles.0 //@roles.1">
+    <descriptions display="Donors" locale="en"/>
+    <groups name="Description" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="LA">
+      <descriptions display="Description" locale="en"/>
+      <fields xsi:type="imogene:TextField" name="Donor" shortName="LAA" required="true">
+        <descriptions display="Donor" locale="en"/>
+      </fields>
+    </groups>
+  </entities>
+  <entities name="Organizations" shortName="M" columnFields="//@entities.17/@groups.0/@fields.0" mainFields="//@entities.17/@groups.0/@fields.0" color="60d491" creators="//@roles.0 //@roles.1">
+    <descriptions display="Organizations" locale="en"/>
+    <groups name="Description" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="MA">
+      <descriptions display="Description" locale="en"/>
+      <fields xsi:type="imogene:TextField" name="Organization" shortName="MAA" required="true">
+        <descriptions display="Organization" locale="en"/>
+      </fields>
+    </groups>
+  </entities>
+  <entities xsi:type="imogene:Actor" name="SysAdmin" shortName="D" columnFields="//@entities.18/@groups.0/@fields.0 //@entities.18/@groups.0/@fields.1 //@entities.18/@groups.0/@fields.2" mainFields="//@entities.18/@groups.0/@fields.0" secondaryFields="//@entities.18/@groups.0/@fields.1" color="60d491" creators="//@roles.0" adminFields="//@entities.18/@groups.0/@fields.0 //@entities.18/@groups.0/@fields.1 //@entities.18/@groups.0/@fields.2">
+    <descriptions display="System Admin" locale="en"/>
+    <groups name="SystemAdmin" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="DA" icon="">
+      <descriptions display="Description" locale="en"/>
+      <fields xsi:type="imogene:TextField" name="FirstName" shortName="DAA">
+        <descriptions display="First name" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:TextField" name="LastName" shortName="DAB">
+        <descriptions display="Last name" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:PhoneField" name="Phone" shortName="DAC">
+        <descriptions display="Phone" locale="en"/>
+      </fields>
+    </groups>
+  </entities>
+  <entities xsi:type="imogene:Actor" name="Engineer" shortName="C" columnFields="//@entities.19/@groups.0/@fields.0 //@entities.19/@groups.0/@fields.1 //@entities.19/@groups.0/@fields.2" mainFields="//@entities.19/@groups.0/@fields.0 //@entities.19/@groups.0/@fields.1 //@entities.19/@groups.0/@fields.2" color="60d491" creators="//@roles.0" adminFields="//@entities.19/@groups.0/@fields.0 //@entities.19/@groups.0/@fields.1 //@entities.19/@groups.0/@fields.2">
+    <descriptions display="Engineer" locale="en"/>
+    <groups name="Engineer" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="CA" icon="">
+      <descriptions display="Description" locale="en"/>
+      <fields xsi:type="imogene:TextField" name="FirstName" shortName="CAA">
+        <descriptions display="First name" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:TextField" name="LastName" shortName="CAB">
+        <descriptions display="Last name" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:PhoneField" name="Phone" shortName="CAC">
+        <descriptions display="Phone" locale="en"/>
+      </fields>
+    </groups>
+  </entities>
+  <entities xsi:type="imogene:Actor" name="Enumerator" shortName="E" columnFields="//@entities.20/@groups.0/@fields.0 //@entities.20/@groups.0/@fields.1 //@entities.20/@groups.0/@fields.2" mainFields="//@entities.20/@groups.0/@fields.0 //@entities.20/@groups.0/@fields.1" icon="" color="60d491" creators="//@roles.0" adminFields="//@entities.20/@groups.0/@fields.0 //@entities.20/@groups.0/@fields.1 //@entities.20/@groups.0/@fields.2">
+    <descriptions display="Enumerator" locale="en"/>
+    <groups name="Enumerator" readers="//@roles.0 //@roles.1" writers="//@roles.0 //@roles.1" shortName="EA" icon="">
+      <descriptions display="Description" locale="en"/>
+      <fields xsi:type="imogene:TextField" name="FirstName" shortName="EAA">
+        <descriptions display="First name" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:TextField" name="LastName" shortName="EAB">
+        <descriptions display="Last name" locale="en"/>
+      </fields>
+      <fields xsi:type="imogene:PhoneField" name="Phone" shortName="EAC">
+        <descriptions display="Phone" locale="en"/>
+      </fields>
+    </groups>
+  </entities>
+  <entityUIFormats entity="SchoolAssessment"/>
+  <themas name="ThemaSchoolAssesment" entities="SchoolAssessment">
+    <descriptions display="School Assesment" locale="en"/>
+  </themas>
+  <themas name="ThemaSchool">
+    <descriptions display="School" locale="en"/>
+  </themas>
+  <themas name="ThemaAdministration" entities="District Tehsil UnionCouncil Village">
+    <descriptions display="Administration" locale="en"/>
+  </themas>
+  <themas name="ThemaFieldTeam" entities="SurveyTeam Engineer Enumerator">
+    <descriptions display="FieldTeam" locale="en"/>
+  </themas>
+  <roles name="Admin"/>
+  <roles name="Surveyor"/>
+  <languages name="English" floatFormat="X.Y" isoCode="en"/>
+</imogene:Project>
