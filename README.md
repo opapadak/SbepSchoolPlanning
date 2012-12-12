@@ -1,4 +1,4 @@
 SbepSchoolPlanning
 ==================
 
-Medes Imogene solution for school assessments data capture for the USAID funded Sindh Basic Education Programe (SBEP).
+School assessment data capture model implementing Medes Imogene solution for the USAID funded Sindh Basic Education Programe (SBEP).
